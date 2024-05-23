@@ -56,7 +56,7 @@ button {
   }
 
   &:disabled {
-    background-color: #a9a9a9;
+    background-color: var(--disabled-color);
     cursor: not-allowed;
 
     &:hover {

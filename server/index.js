@@ -13,6 +13,10 @@ const port = 3000;
 
   app.use('/registration', express.static(path.join(__dirname, '../client/dist')));
 
+  app.get('/', (req, res) => {
+    res.redirect('/registration');
+  });
+
   app.get('/registration/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });

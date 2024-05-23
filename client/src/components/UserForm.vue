@@ -278,7 +278,7 @@ form {
         height: 12px;
         left: 0;
         top: 4px;
-        background-color: #FFFFFF;
+        background-color: var(--title-color);
       }
       &.active {
         &:after {
@@ -286,7 +286,7 @@ form {
           height: 6px;
           left: 3px;
           top: 7px;
-          background-color: #c70b0b;
+          background-color: var(--primary);
         }
       }
     }
@@ -304,7 +304,7 @@ form {
   }
 
   h3 {
-    color: a9a9a9;
+    color: var(--disabled-color);
     margin: 30px auto 40px;
   }
 

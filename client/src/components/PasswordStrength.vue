@@ -60,6 +60,14 @@ export default {
     list-style: none;
     padding: 0;
     margin: 0;
+    li {
+      &.check {
+        color: var(--success);
+      }
+      &.not-check {
+        color: var(--danger);
+      }
+    }
   }
   p {
     color: var(--text-color);
@@ -71,11 +79,5 @@ export default {
       font-weight: 700;
     }
   }
-}
-.check {
-  color: var(--success);
-}
-.not-check {
-  color: var(--danger);
 }
 </style>
