@@ -16,24 +16,24 @@ Criar uma aplicação cliente (browser) de cadastro de usuários que envia os da
 Para a instalação, é necessário ter o Node.js instalado em seu computador (de preferência na versão 18).
 Para verificar se você possui o Node instalado, rode o seguinte comando:
 
-```terminal
+```bash
 node -v
 ```
 
 Caso ainda não possua o Node instalado, acessar o site oficial e instalar (https://nodejs.org/en).
 \
 Agora, com o Node instalado, clone o repositório em uma pasta de sua preferência, rodando no terminal:
-```terminal
+```bash
 git clone https://github.com/tairadev/desafio-mb.git
 ```
 \
 Acesse a raíz do projeto rodando:
-```terminal
-cd /desafio-mb // ou cd.\desafio-mb\
+```bash
+cd /desafio-mb # ou cd.\desafio-mb\
 ```
 \
 E rode o comando abaixo para iniciar o servidor:
-```terminal
+```bash
 npm start
 ```
 \
