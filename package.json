@@ -1,0 +1,8 @@
+{
+    "scripts": {
+      "start": "npm run build-and-serve",
+      "build-and-serve": "npm run build-client && npm run start-server",
+      "build-client": "cd client && npm install && npm run build",
+      "start-server": "cd server && npm install && node index.js"
+    }
+  }
