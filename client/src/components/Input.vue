@@ -125,6 +125,8 @@ export default {
 
     &:focus {
       outline: 0;
+      background-color: var(--input-focus-bg);
+      border-color: var(--input-focus-border);
     }
 
     &.error {
