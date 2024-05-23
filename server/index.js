@@ -1,27 +1,13 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const path = require('path');
+
+const app = express();
 const port = 3000;
 
-(async () => {
-  const { default: ValidationHelper } = await import('../client/src/helpers/ValidationHelper.js');
-
-  app.use(cors());
-
-  app.use(express.json());
-
-  app.use('/registration', express.static(path.join(__dirname, '../client/dist')));
-
-  app.get('/', (req, res) => {
-    res.redirect('/registration');
-  });
-
-  app.get('/registration/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-  });
-
-  app.post('/registration', (req, res) => {
+const validateUserData = async (req, res, next) => {
+  try {
+    const { default: ValidationHelper } = await import('../client/src/helpers/ValidationHelper.js');
     const { isPJ, email, name, document, date, phone, password } = req.body;
 
     if (!ValidationHelper.isEmailValid(email)) {
@@ -70,18 +56,39 @@ const port = 3000;
     if (!isPasswordValid) {
       return res.status(400).json({
         status: 'error',
-        message: `A senha não atende a todos os requisitos`
+        message: `A senha não atende a todos os requisitos.`
       });
     }
 
-    res.status(200).json({
-      status: 'success',
-      message: 'Usuário cadastrado com sucesso!'
+    next();
+  } catch (error) {
+    return res.status(500).json({
+      status: 'error',
+      message: 'Ocorreu um problema na sua requisição. Por favor, tente novamente mais tarde.'
     });
-  });
+  }
+};
 
-  app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-  });
+app.use(cors());
+app.use(express.json());
 
-})();
+app.use('/registration', express.static(path.join(__dirname, '../client/dist')));
+
+app.get('/', (req, res) => {
+  res.redirect('/registration');
+});
+
+app.post('/registration', validateUserData, (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'Usuário cadastrado com sucesso!'
+  });
+});
+
+app.get('/registration/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+app.listen(port, () => {
+  console.log('\x1b[32m', `\n\n > Servidor rodando em http://localhost:${port}`);
+});

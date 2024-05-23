@@ -1,9 +1,7 @@
 <template>
-  <div id="app">
-    <Header />
-    <Register />
-    <Footer />
-  </div>
+  <Header />
+  <Register />
+  <Footer />
 </template>
 
 <script>

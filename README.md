@@ -29,7 +29,7 @@ git clone https://github.com/tairadev/desafio-mb.git
 \
 Acesse a raíz do projeto rodando:
 ```terminal
-cd /desafio-mb
+cd /desafio-mb // ou cd.\desafio-mb\
 ```
 \
 E rode o comando abaixo para iniciar o servidor:

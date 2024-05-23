@@ -1,5 +1,8 @@
 <template>
   <form @submit.prevent="handleSubmit">
+    <p v-if="step < 5" class="stepper">
+      Etapa <span>{{ step }}</span> de 4
+    </p>
     <h2>{{ sectionTitle }}</h2>
     <Input
       v-if="step === 1 || step === 4"
@@ -103,7 +106,7 @@ export default {
     Input,
   },
   setup() {
-    const baseUrl = ref(import.meta.env.VITE_BASE_URL);
+    const baseUrl = ref(import.meta.env.MODE === 'production' ? import.meta.env.VITE_BASE_URL : import.meta.env.VITE_BASE_URL_DEV);
 
     const user = ref({
       isPJ: false,
@@ -247,6 +250,15 @@ form {
   width: 100%;
   max-width: 516px;
 
+  p.stepper {
+    margin: 0 auto 20px 0;
+    color: var(--text-color);
+    span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+  }
+
   h2 {
     color: var(--text-color);
     font-size: 24px;
@@ -313,7 +325,7 @@ form {
     width: calc(100% - 56px);
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 480px) {
     .buttons-container {
       flex-direction: column-reverse;
     }

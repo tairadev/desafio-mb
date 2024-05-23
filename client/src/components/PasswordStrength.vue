@@ -37,7 +37,7 @@ export default {
     },
   },
   setup(props) {
-    const baseUrl = ref(import.meta.env.VITE_BASE_URL);
+    const baseUrl = ref(import.meta.env.MODE === 'production' ? import.meta.env.VITE_BASE_URL : import.meta.env.VITE_BASE_URL_DEV);
 
     const switchImg = (value) => {
       return value ? 'password-requirement-status.svg' : 'password-requirement-wrong.svg';

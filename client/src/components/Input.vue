@@ -56,7 +56,7 @@ export default {
     const { modelValue, hasError, autocomplete, title, name, type, placeholder, error } = toRefs(props);
 
     const showPass = ref(false);
-    const baseUrl = ref(import.meta.env.VITE_BASE_URL);
+    const baseUrl = ref(import.meta.env.MODE === 'production' ? import.meta.env.VITE_BASE_URL : import.meta.env.VITE_BASE_URL_DEV);
 
     const toggleShowPass = () => { showPass.value = !showPass.value; };
 
@@ -121,6 +121,7 @@ export default {
     font-weight: 400;
     height: 40px;
     padding: 0px 30px 0px 12px;
+    transition: .3s;
 
     &:focus {
       outline: 0;
