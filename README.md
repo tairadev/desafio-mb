@@ -13,7 +13,7 @@ Criar uma aplicação cliente (browser) de cadastro de usuários que envia os da
 - NodeJS com Express para servir o conteúdo e as APIs (com modo "mockup") descritos abaixo na sessão Requisitos técnicos para o servidor NodeJS
 
 ## 🖥️ Instalação
-Para a instalação, é necessário ter o Node.js instalado em seu computador (de preferência na versão 18).
+Para a instalação, é necessário ter o Node.js instalado em seu computador (de preferência da versão 18 para frente).
 Para verificar se você possui o Node instalado, rode o seguinte comando:
 
 ```bash
