@@ -151,6 +151,7 @@ export default {
           if (!response.ok) throw new Error(message);
           clearUser();
         } catch (error) {
+          if (!message.value) message.value = 'Ocorreu um erro ao tentar cadastrar. Por favor, tente novamente mais tarde!'
           hasError.value = true;
         }
         nextStep();
