@@ -61,6 +61,11 @@ button {
       opacity: 1;
     }
   }
+
+  &:not([disabled]):active {
+    transform: scale(.95);
+  }
+  
   &.outline {
     background: transparent;
     color: var(--primary);
