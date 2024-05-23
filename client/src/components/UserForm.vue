@@ -304,7 +304,7 @@ form {
   }
 
   h3 {
-    color: var(--disabled-color);
+    color: var(--text-color);
     margin: 30px auto 40px;
   }
 
